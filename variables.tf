@@ -23,6 +23,10 @@ variable "vpc" {
       availability_zone       = string
       map_public_ip_on_launch = bool
     }))
+    pri-subnets = list(object({
+      cidr_block        = string
+      availability_zone = string
+    }))
   })
 
   default = {
@@ -35,6 +39,13 @@ variable "vpc" {
       cidr_block              = "10.0.0.64/26"
       availability_zone       = "us-east-1e",
       map_public_ip_on_launch = true,
+    }]
+    pri-subnets = [{
+      cidr_block        = "10.0.0.128/26",
+      availability_zone = "us-east-1d",
+      }, {
+      cidr_block        = "10.0.0.192/26"
+      availability_zone = "us-east-1e",
     }]
   }
 }
