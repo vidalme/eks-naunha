@@ -33,19 +33,19 @@ variable "vpc" {
     cidr_block = "10.0.0.0/16"
     pub-subnets = [{
       cidr_block              = "10.0.0.0/26",
-      availability_zone       = "us-east-1d",
+      availability_zone       = "us-east-1a",
       map_public_ip_on_launch = true,
       }, {
       cidr_block              = "10.0.0.64/26"
-      availability_zone       = "us-east-1e",
+      availability_zone       = "us-east-1b",
       map_public_ip_on_launch = true,
     }]
     pri-subnets = [{
       cidr_block        = "10.0.0.128/26",
-      availability_zone = "us-east-1d",
+      availability_zone = "us-east-1a",
       }, {
       cidr_block        = "10.0.0.192/26"
-      availability_zone = "us-east-1e",
+      availability_zone = "us-east-1b",
     }]
   }
 }
