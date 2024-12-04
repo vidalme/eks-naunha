@@ -50,15 +50,17 @@ variable "vpc" {
   }
 }
 
-
-# variable "subnet" {
-#     type = object({
-#         name = string
-#         cidr_block = string
-#     })
-#     default = {
-#         name = "eks-na-unha-subnet"
-#         cidr_block = "
-#     }
-
-# }
+variable "ecr" {
+  type = list(object({
+    name                 = string
+    image_tag_mutability = string
+  }))
+  default = [{
+    name                 = "eksnaunha/production/frontend"
+    image_tag_mutability = "MUTABLE"
+    },
+    {
+      name                 = "eksnaunha/production/backend"
+      image_tag_mutability = "MUTABLE"
+  }]
+}
